@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tasks', function(Blueprint $table){
             $table->id();
             $table->string('title',150);
-            $table->text('descirption')->nullable();
+            $table->text('description')->nullable();
             $table->string('status')->default('TODO');
             $table->string('priority')->default('MEDIUM');
             $table->date('due_date')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tasks');
     }
 };
