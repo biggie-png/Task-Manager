@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::craate('tasks', function(Blueprint $table){
-            $table->id()->autoIncrement();
+        Schema::create('tasks', function(Blueprint $table){
+            $table->id();
             $table->string('title')->primary();
-            $table->string('descirption')->nullable();
+            $table->text('descirption')->nullable();
             $table->string('status')->default('TODO');
             $table->string('priority')->default('MEDIUM');
             $table->date('due_date')->nullable();
