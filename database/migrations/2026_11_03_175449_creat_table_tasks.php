@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function(Blueprint $table){
             $table->id();
-            $table->string('title')->primary();
+            $table->string('title',150);
             $table->text('descirption')->nullable();
             $table->string('status')->default('TODO');
             $table->string('priority')->default('MEDIUM');
