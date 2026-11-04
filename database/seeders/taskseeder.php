@@ -5,16 +5,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\task;
+use App\Models\Task;
 
-class taskseeder extends Seeder
+class Taskseeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        task::create([
+        Task::create([
             'title' => 'Learn Laravel',
             'status' => 'TODO',
             'priority' => 'HIGH'
