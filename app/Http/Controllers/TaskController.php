@@ -13,9 +13,9 @@ class TaskController extends Controller
         return response()->json(['data'=>$tasks]);
 
     }
-    public function show(Request $request) {
-        $id = $request->input('id');
-        $task_id =Task::findOrFail("{$id}");
+    public function show($sid) {
+        $id = $sid;
+        $task_id =Task::find($id);
         return response()->json([
             'data'=>$task_id
         ]);
