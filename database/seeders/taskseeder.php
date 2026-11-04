@@ -14,11 +14,36 @@ class Taskseeder extends Seeder
      */
     public function run(): void
     {
-        Task::create([
+        $tasks=[[
             'title' => 'Learn Laravel',
             'status' => 'TODO',
             'priority' => 'HIGH'
+        ],[
+            'title' => 'Practice PHP',
+            'status' => 'IN_PROGRESS',
+            'priority' => 'MEDIUM'
 
-        ]);
+        ],[
+            'title' => 'Build Task Manager',
+            'status' => 'TODO',
+            'priority' => 'HIGH'
+
+        ],[
+            'title' => 'Learn JavaScript',
+            'status' => 'DONE',
+            'priority' => 'LOW'
+
+        ],[
+            'title' => 'Review Database',
+            'status' => 'TODO',
+            'priority' => 'MEDIUM'
+
+        ]
+
+
+        ];
+        foreach($tasks as $task){
+            Task::create($task);
+        }
     }
 }
