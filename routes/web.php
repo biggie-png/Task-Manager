@@ -6,6 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-route::get('/task',function(){
+route::get('/tasks',function(){
     return view('task');
 })->name('task');
