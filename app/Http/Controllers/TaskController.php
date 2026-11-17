@@ -13,11 +13,10 @@ class TaskController extends Controller
         return response()->json(['data'=>$tasks]);
 
     }
-    public function show($id) {
+    public function show(Request $request,int $id) {
         
-        $task_id =Task::find($id);
-        return response()->json([
-            'data'=>$task_id
-        ]);
+        $task_id =Task::findorfail($id);
+        return view('/tasks/show',compact('task_id'));
     }
+
 }

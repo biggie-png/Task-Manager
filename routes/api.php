@@ -10,4 +10,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 route::get('/tasks',[TaskController::class,'index'])->name('api.tasks');
-route::get('/tasks/{id}',[TaskController::class, 'show'])->name('api.show');
+route::get('/tasks/show/{id}',[TaskController::class, 'api_show'])->name('api.show');
