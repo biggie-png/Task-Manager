@@ -30,7 +30,7 @@
             </select>
             <div class="formgroup">
                 <input type="date" name="due_date" id="due_date">
-                <div class="date-error"></div>
+                <div class="due_date-error"></div>
             </div>
             
             
@@ -69,7 +69,7 @@
                         }
                         else{
                             Object.entries(result.errors).forEach(([key,message]) => {
-                                const error = document.getElementById(`${key}-error`)
+                                const error = document.querySelector(`.${key}-error`)
                                 if(error)
                                     error.textContent= message[0]
                             });
