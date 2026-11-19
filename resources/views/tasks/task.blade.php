@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>task page</h1>
+    <div class="head"><h1>task page</h1> <a href="/tasks/create">create new task</a></div>
+    
 
 
     <div class="board" id="b_task">

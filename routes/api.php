@@ -10,4 +10,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 route::get('/tasks',[TaskController::class,'index'])->name('api.tasks');
+route::post('/tasks/store',[TaskController::class, 'store'])->name('api.store');
 route::get('/tasks/show/{id}',[TaskController::class, 'api_show'])->name('api.show');
