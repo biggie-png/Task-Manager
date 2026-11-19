@@ -17,7 +17,9 @@ class Task extends Model
 
     protected function casts(): array
     {
-        return[];
+        return[
+            'due_date' => 'date'
+        ];
     }
     
 

@@ -11,7 +11,7 @@
         <form id="create-task" action="" method="get">
             <div class="formgroup">
                 <input type="text" name="title" id="title" placeholder="enter-title">
-                <div class="titie-error"></div>
+                <div class="title-error"></div>
             </div>
             <div class="formgroup">
                 <input type="text" name="description" id="description">
@@ -21,7 +21,7 @@
             <select name="status" id="status">
                 <option value="TODO" >TODO</option>
                 <option value="DONE">DONE</option>
-                <option value="IN_PROCESS">IN PROCESS</option>
+                <option value="IN_PROGRESS">IN PROGRESS</option>
             </select>
             <select name="priority" id="priority" >
                 <option value="HIGH">HIGH</option>
@@ -34,7 +34,7 @@
             </div>
             
             
-            <input type="button" name="enter" id="enter" value="enters">
+            <input type="submit" name="enter" id="enter" value="enters">
             <a href="/">back</a>
         </form>
     </div>
@@ -43,22 +43,25 @@
             async function save()  {
                 const e= document.getElementById('enter')
                 const inputform = document.querySelectorAll('input')
-                e.addEventListener('click', async(es)=>{
+                const form = document.getElementById('create-task')
+                
+                form.addEventListener('submit', async(es)=>{
                     es.preventDefault()
-                    const feild= ['title','description','date']
-                    for(let i ; i<inputform.length;i++){
+                    const feild= ['title','description','due_date']
+                    for(let i=0 ; i<inputform.length;i++){
                         const input = inputform[i]
                         const formgroup = input.parentElement
                         if(feild[i]){
-                            const errorbox = document.querySelector(`${feild[i]}-error`)
-                            errorbox.textContent=''
+                            const errorbox = document.querySelector(`.${feild[i]}-error`)
+                            errorbox.textContent=""
                         }
                         
                     }
-                    const form = document.getElementById('create-task')
-                    const task_form = new FormData(form)
+                    
+                    
                     try {
-                        const respon = await fetch('api/tasks/store',{method:'post',header:{'Accept':'application/json'},body:task_form})
+                        const task_form = new FormData(form)
+                        const respon = await fetch('/api/tasks/store',{method:'post',headers:{'Accept':'application/json'},body:task_form})
                         const result = await respon.json()
                         form
                         if(respon.ok){

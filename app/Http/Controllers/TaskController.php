@@ -22,17 +22,21 @@ class TaskController extends Controller
     }
     public function store(Request $request ){
         $new_task=  $request->Validate([
-            'title'=>'required|max:100|min:0',
-            'description'=>'required|max:500:nullable',
-            'status'=>'required|in:TODO,IN_PROCESS,DONE',
+            'title'=>'required|max:150|min:0',
+            'description'=>'max:500|nullable',
+            'status'=>'required|in:TODO,IN_PROGRESS,DONE',
             'priority'=>'required|in:HIGH,MEDIUM,LOW',
-            'due_date'=>'required|date|nullable'
+            'due_date'=>'|date|nullable'
         ]);
         Task::create($new_task);
         return response()->json([
             'Message'=>'บันทึกสำเร็จ'
         ]);
 
+    }
+    public function api_show(int $id)
+    {
+        return response()->json(['data' => Task::findOrFail($id)]);
     }
 
 }
